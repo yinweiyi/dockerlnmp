@@ -13,8 +13,8 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) gd && docker-php-ext-install pdo_mysql
 
 # 安装 PECL 拓展，安装swoole*
-RUN  pecl install swoole \
-    && docker-php-ext-enable swoole
+#RUN  pecl install swoole \
+#    && docker-php-ext-enable swoole
 
 # 安装 php-redis
 RUN  pecl install redis \
