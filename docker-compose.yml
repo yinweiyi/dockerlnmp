@@ -56,12 +56,22 @@ services:
     links:
       - db
       - redis
+      - es
     cap_add:
       - SYS_PTRACE
     restart: always
     networks:
       - back-tier
 
+  es:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.9.1
+    environment:
+      discovery.type: single-node
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      - back-tier
 
 networks:
   front-tier:
