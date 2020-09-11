@@ -1,4 +1,6 @@
 nginx/log/
 mysql/data/
 redis/data/
+projects/billeslook/
+projects/easyswoole/
 .idea

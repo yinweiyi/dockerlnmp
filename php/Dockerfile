@@ -16,6 +16,8 @@ RUN apt-get update && apt-get install -y \
 #RUN  pecl install swoole \
 #    && docker-php-ext-enable swoole
 
+# 安装 opcache 扩展
+RUN docker-php-ext-configure opcache --enable-opcache && docker-php-ext-install opcache
+
 # 安装 php-redis
-RUN  pecl install redis \
-    && docker-php-ext-enable redis
+RUN  pecl install redis && docker-php-ext-enable redis
