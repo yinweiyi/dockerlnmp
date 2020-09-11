@@ -27,14 +27,18 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: blog
     ports:
-    - "3306:3306"
+      - "3306:3306"
     networks:
       - back-tier
 
   redis:
     image: redis:${REDIS_VERSION}
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
     ports:
-      - 6379
+      - "6379:6379"
+    volumes:
+      - ${REDIS_CONFIG_FILE}:/usr/local/etc/redis/redis.conf
+      - ${REDIS_DATA_DIR}:/data
     networks:
       - back-tier
     restart: always

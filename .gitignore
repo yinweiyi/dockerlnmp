@@ -1,2 +1,5 @@
-mysql/data
-nginx/log
+nginx/log/
+mysql/data/
+projects/billeslook/
+projects/easyswoole/
+.idea
