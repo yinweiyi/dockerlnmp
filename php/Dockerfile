@@ -1,5 +1,5 @@
 ARG PHP_VERSION
-FROM php-${PHP_VERSION}-fpm
+FROM php:${PHP_VERSION}-fpm
 LABEL maintaner="378772944@qq.com"
 
 # 使用 阿里源 替换
