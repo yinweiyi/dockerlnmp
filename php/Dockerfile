@@ -1,4 +1,5 @@
-FROM php:7.4-fpm
+ARG PHP_VERSION
+FROM php-${PHP_VERSION}-fpm
 LABEL maintaner="378772944@qq.com"
 
 # 使用 阿里源 替换
@@ -13,8 +14,8 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) gd && docker-php-ext-install pdo_mysql
 
 # 安装 PECL 拓展，安装swoole*
-#RUN  pecl install swoole \
-#    && docker-php-ext-enable swoole
+RUN  pecl install swoole \
+    && docker-php-ext-enable swoole
 
 # 安装 opcache 扩展
 RUN docker-php-ext-configure opcache --enable-opcache && docker-php-ext-install opcache
